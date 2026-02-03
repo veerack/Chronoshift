@@ -43,6 +43,7 @@
 
 1. **Equip Chronoshift**: Hold Chronoshift
 2. **Activation**: Right-click to activate
+3. **MANDATORY**: The **Chronoshift** item must be held in the off-hand, in the **FIRST** slot (bottom left one) in order for it to be triggered upon death.
 3. **Adventure**: Explore, fight, risk your life
 4. **Auto-Protection**: If you take fatal damage:
    - 3-second countdown begins
