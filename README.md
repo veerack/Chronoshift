@@ -139,7 +139,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-- **Hytix Team** – Thanks to these guys for making this mod possible:
+- **[Hytix](https://x.com/HytixEU) Team** – Thanks to these guys for making this mod possible:
 
 ### 3D MODELING & TEXTURES
 - `poppicorni`: [Discord](https://discord.com/users/325387510614327296)
