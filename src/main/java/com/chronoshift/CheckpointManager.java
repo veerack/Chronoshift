@@ -44,14 +44,14 @@ public class CheckpointManager {
 
     public void loadCheckpoints() {
         if (!checkpointsFile.exists()) {
-            Log.info("No existing checkpoints file found. Starting fresh.");
+            Log.info("[Chronoshift] No existing checkpoints file found. Starting fresh.");
             return;
         }
 
         try {
             String content = Files.readString(checkpointsFile.toPath());
             if (content.trim().isEmpty()) {
-                Log.info("Checkpoints file is empty. Starting fresh.");
+                Log.info("[Chronoshift] Checkpoints file is empty. Starting fresh.");
                 return;
             }
 
@@ -67,13 +67,13 @@ public class CheckpointManager {
                     CheckpointData data = CheckpointData.fromJson(entry);
                     playerCheckpoints.put(data.getPlayerUuid(), data);
                 } catch (Exception e) {
-                    Log.warn("Failed to parse checkpoint entry: " + entry);
+                    Log.warn("[Chronoshift] Failed to parse checkpoint entry: " + entry);
                 }
             }
 
             Log.info("Loaded " + playerCheckpoints.size() + " player checkpoints.");
         } catch (IOException e) {
-            Log.error("Failed to load checkpoints: " + e.getMessage());
+            Log.error("[Chronoshift] Failed to load checkpoints: " + e.getMessage());
         }
     }
 
@@ -95,7 +95,7 @@ public class CheckpointManager {
             Files.writeString(checkpointsFile.toPath(), json.toString());
             Log.info("Saved " + playerCheckpoints.size() + " player checkpoints.");
         } catch (IOException e) {
-            Log.error("Failed to save checkpoints: " + e.getMessage());
+            Log.error("[Chronoshift] Failed to save checkpoints: " + e.getMessage());
         }
     }
 

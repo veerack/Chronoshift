@@ -63,12 +63,12 @@ public final class ChronoshiftInventoryLockSystem extends EntityEventSystem<Enti
         Player player = store.getComponent(ref, Player.getComponentType());
         if (player == null) return;
 
-        // Block if player has Chronoshift in inventory (even without checkpoint)
+        // block if player has Chronoshift in inventory
         if (!hasChronoshift(player)) return;
 
-        // Block interacting with any block that has an inventory (chests, furnaces, crafting tables, etc.)
+        // block interacting with any block that has an inventory
         event.setCancelled(true);
-        player.sendMessage(com.chronoshift.utils.ChatColors.parse("&c» &cCannot interact with blocks while holding Chronoshift!"));
+        player.sendMessage(com.chronoshift.utils.ChatColors.parse("&c» &cCannot interact while Chronoshift is in your inventory!"));
     }
 
     private boolean hasChronoshift(Player player) {

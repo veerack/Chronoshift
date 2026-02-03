@@ -358,10 +358,10 @@ public class ChronoshiftEffects {
             ItemContainer everything = inv.getCombinedEverything();
             if (everything == null) return;
 
-            // Remove Chronoshift from inventory (consume it)
+            // remove chronoshift (tentative)
             removeChronoshift(inv);
 
-            // Restore saved items to their slots
+            // will this work? no clue lol
             String[] items = inventoryData.split("\\|");
 
             for (String item : items) {
@@ -383,18 +383,18 @@ public class ChronoshiftEffects {
 
     private void removeChronoshift(Inventory inv) {
         try {
-            // Check utility slot (offhand) first
+            // check offhand
             ItemContainer utility = inv.getUtility();
             if (utility != null) {
                 ItemStack offhandItem = utility.getItemStack((short) 0);
                 if (offhandItem != null && "Chronoshift".equals(offhandItem.getItemId())) {
-                    // Use removeItemStackFromSlot to remove it
+                    // use removeItemStackFromSlot to remove it
                     utility.removeItemStackFromSlot((short) 0);
                     return;
                 }
             }
 
-            // Check main inventory if not in offhand
+            // check main inventory if not in offhand
             ItemContainer everything = inv.getCombinedEverything();
             if (everything == null) return;
 
@@ -415,10 +415,11 @@ public class ChronoshiftEffects {
                 }
             });
 
-            // Remove each Chronoshift item by replacing with air
+            // remove each chronoshift item by replacing with nothing (empty) -- no idea if this will actually work,
+            // but its worth trying, right?
             if (slotsToRemove[0] != null) {
                 for (int i = 0; i < count[0]; i++) {
-                    ItemStack air = new ItemStack("air", 1);
+                    ItemStack air = new ItemStack("empty", 1);
                     everything.addItemStackToSlot(slotsToRemove[0][i], air);
                 }
             }

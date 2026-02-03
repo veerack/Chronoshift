@@ -1,104 +1,155 @@
+<div align="center">
+
+<img src="src/main/resources/chronoshift/Common/Icons/ItemsGenerated/TimewiseClock.png" alt="Chronoshift icon" width="160" />
+
 # Chronoshift
 
-A **Chronoshift** is a legendary time-bending item for Hytale servers. When held in your offhand, right-click to set a checkpoint. If your health drops below 30%, you'll automatically teleport back to your checkpoint with your inventory restored, and the Chronoshift will be consumed.
+### *A Time-Bending Item for Hytale*
+
+*A mythical, ancient clock that manipulates time in dangerous situations.*
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](https://opensource.org/licenses/MIT)
+[![Java](https://img.shields.io/badge/Java-25+-orange.svg)](https://www.oracle.com/java/)
+[![Gradle](https://img.shields.io/badge/Gradle-8.0+-green.svg)](https://gradle.org/)
+
+</div>
+
+---
 
 ## Features
 
-- **Checkpoint System**: Right-click to save your position, health, and inventory
-- **Auto-Activation**: Triggers automatically when health falls below 30%
-- **Inventory Restoration**: Returns your inventory to the exact state it was when the checkpoint was set
-- **Anti-Dupe Protection**: Prevents item drops and chest interactions while Chronoshift is held
-- **Time-Bending Effects**: Custom animations, particles, and sounds
-- **Toggle Functionality**: Right-click again to deactivate your checkpoint
+- **Auto-Activation**: Automatically triggers when you take fatal damage.
+- **Easy Usage**: Right-click to activate or deactivate Chronoshift (toggle).
+- **Time Rewind**: Saves you from dangerous situations by rewinding time, restoring your health and inventory.
+- **Limitations**: Due to the game mechanics, I had to make sure duping wasn't possible, so:
+  - Chronoshift can be activated from anywhere, but it will only work if it's in your offhand (left bottom slot (1)) when you take fatal damage.
+  - When you activate Chronoshift, you can't drop items from your inventory. 
+  - Just having Chronoshift in your inventory also blocks you from interacting with... basically everything (you still can drop items). 
+  - You can move items **INSIDE** your inventory at any time (even while Chronoshift is active).
+
+---
 
 ## Installation
 
-1. Download the latest `Chronoshift.jar` from the [Releases](https://github.com/yourusername/Chronoshift/releases) page
-2. Place the jar file in your server's `plugins/` folder
-3. Restart your server
-4. Give the item to players: `/item give Chronoshift`
+### Quick Start
+
+1. **Download** the latest `Chronoshift-x.x.x.jar` from the [Releases](https://github.com/veerack/Chronoshift/releases) page
+2. **Place** the jar file in your server's `AppData\Roaming\Hytale\UserData\Mods` folder
+3. **Activate** it in the Hytale client for your world
+
+## How to Use
+
+### Basic Usage
+
+1. **Equip Chronoshift**: Hold Chronoshift
+2. **Activation**: Right-click to activate
+3. **Adventure**: Explore, fight, risk your life
+4. **Auto-Protection**: If you take fatal damage:
+   - 3-second countdown begins
+   - Visual and audio effects play
+   - Teleport back to where you activated Chronoshift
+   - Health restored to 100%
+   - Inventory restored to how it was when you activated Chronoshift
+5. **Consumption**: Chronoshift disappears after use (one-time use)
+
+### Protection System
+
+While Chronoshift is **active** (checkpoint set):
+
+| Action | Status | Reason |
+|--------|--------|--------|
+| Move/Break/Place Blocks | ✅ Allowed | Normal gameplay |
+| Move items in inventory | ✅ Allowed | Organization |
+| Drop items | ❌ Blocked | Prevents duping |
+| Open containers | ❌ Blocked | Prevents duping |
+| Interact with blocks | ❌ Blocked | Prevents exploits |
+
+---
+
+## Crafting
+
+### Recipe
+
+Craft at an **Arcane Bench** (Tier 1+):
+
+| Ingredient | Quantity |
+|------------|----------|
+| Gold Bar | 4x |
+| Topaz | 6x |
+| Silver Bar | 1x |
+| Teleporter | 1x |
+
+**Requirements**:
+- Memories Level: 3
+- Crafting Time: 30 seconds
+- Category: Arcane Portals
+
+---
 
 ## Building from Source
 
 ### Prerequisites
 
-- Java 25 or higher
-- Gradle 8.0 or higher
-- Hytale Server jar (place in `libs/HytaleServer.jar`)
+- JDK 25+
+- Gradle 8.0+
+- `HytaleServer.jar`
 
 ### Build Steps
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/Chronoshift.git
+git clone https://github.com/veerack/Chronoshift.git
 cd Chronoshift
 
-# Build the plugin
+# Build with Gradle
 ./gradlew build
 
-# The jar will be in build/libs/Chronoshift.jar
+# Output: build/libs/Chronoshift-1.0.0.jar
 ```
 
-## Usage
+**Development**:
+```bash
+./gradlew clean
+./gradlew jarChronoshift
+./gradlew test
+```
 
-### For Players
-
-1. **Equip Chronoshift**: Place Chronoshift in your offhand (utility slot)
-2. **Set Checkpoint**: Right-click to activate. You'll see a message: "The Chronoshift started bending time..."
-3. **Play Normally**: Go explore, fight, or adventure
-4. **Auto-Teleport**: If your health drops below 30%, you'll automatically be sent back to your checkpoint after 3 seconds
-5. **Consumption**: The Chronoshift is consumed on use (you'll need to craft another one)
-
-### Commands
-
-- `/tc` - Toggle checkpoint (activate if no checkpoint, deactivate if one exists)
-
-### Protection Rules
-
-While holding Chronoshift:
-- ✅ Can move and break/place blocks
-- ❌ Cannot drop items (prevents duping)
-- ❌ Cannot open chests, furnaces, or crafting stations
-- ❌ Cannot move items to/from other inventories
-
-Once a checkpoint is set:
-- All restrictions above remain active
-- Deactivate with `/tc` to re-enable inventory interactions
-
-## Crafting
-
-Chronoshift can be crafted in an Arcane Bench:
-
-**Ingredients:**
-- 4x Gold Bar
-- 6x Topaz
-- 1x Silver Bar
-- 1x Teleporter
-
-**Required:** Memories Level 3
-**Crafting Time:** 30 seconds
-**Bench:** Arcane Bench (Tier 1+)
+---
 
 ## Configuration
 
-Checkpoint data is stored in `plugins/Chronoshift/checkpoints.json`
+Data is stored in:
+```
+plugins/Chronoshift/checkpoints.json
+```
 
-## Credits
-
-**Author**: [veerack](https://github.com/veerack)
-
-**License**: MIT License - See [LICENSE](LICENSE) for details
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+---
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+---
+
+## Author
+
+**veerack** - [GitHub](https://github.com/veerack)
+
+---
+
 ## Acknowledgments
 
-- Built for the Hytale modding community
-- Uses the HyUI library for custom interfaces
-- Inspired by time-manipulation mechanics in various games
+- **Hytix Team** – Thanks to these guys for making this mod possible:
+
+### 3D MODELING & TEXTURES
+- `poppicorni`: [Discord](https://discord.com/users/325387510614327296)
+
+### ANIMATIONS
+- `_xeno52_`: [Discord](https://discord.com/users/573073546709041153)
+---
+
+<div align="center">
+
+[⬆ Back to Top](#-chronoshift)
+
+</div>

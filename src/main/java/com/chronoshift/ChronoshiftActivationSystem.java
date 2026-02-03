@@ -120,7 +120,7 @@ public final class ChronoshiftActivationSystem extends DamageEventSystem {
 
         try {
             effects.playTeleportSound(player);
-            effects.changeItemAnimation(player, "Items/timecharm/ClockAnimFast.blockyanim");
+            effects.changeItemAnimation(player, "Items/chronoshift/ClockAnimFast.blockyanim");
             effects.applyFreezeEffect(player);
             immunePlayers.put(playerUuid, true);
 
@@ -136,7 +136,7 @@ public final class ChronoshiftActivationSystem extends DamageEventSystem {
             scheduleRestoration(player, checkpoint, 3000L);
 
         } catch (Exception e) {
-            System.err.println("[TimewiseClock] Activation failed: " + e.getMessage());
+            System.err.println("[Chronoshift] Activation failed: " + e.getMessage());
             activatingPlayers.remove(playerUuid);
             immunePlayers.remove(playerUuid);
         }

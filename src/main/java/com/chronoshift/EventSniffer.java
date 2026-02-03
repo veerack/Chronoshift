@@ -30,6 +30,9 @@ import java.util.function.Consumer;
 
 public class EventSniffer {
 
+    /* well, I couldn't think of any better way to do this...........
+    * open-source exists also to embarrass yourself :D */
+
     public void registerAll(Object registry) {
         String[][] eventsToTry = {
             {"PlayerJoinEvent", "com.hypixel.hytale.server.core.event.events.player.PlayerJoinEvent"},

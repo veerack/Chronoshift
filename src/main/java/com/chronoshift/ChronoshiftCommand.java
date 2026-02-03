@@ -51,7 +51,7 @@ public class ChronoshiftCommand extends CommandBase {
     @Override
     protected void executeSync(CommandContext ctx) {
         if (!ctx.isPlayer()) {
-            ctx.sendMessage(Message.raw("Only players can use this command.").color(Color.RED));
+            ctx.sendMessage(Message.raw("[Chronoshift] Only players can use this command.").color(Color.RED));
             return;
         }
 
@@ -63,7 +63,7 @@ public class ChronoshiftCommand extends CommandBase {
         try {
             CheckpointData data = checkpointManager.getCheckpointData(playerUuid);
 
-            // If already has checkpoint, deactivate it
+            // if already has checkpoint, deactivate it
             if (data.hasCharm() && data.getCheckpoint() != null) {
                 data.setHasCharm(false);
                 data.setCheckpoint(null);
@@ -72,16 +72,16 @@ public class ChronoshiftCommand extends CommandBase {
                 return;
             }
 
-            // Otherwise, activate new checkpoint
+            // otherwise, activate new checkpoint
             var universe = com.hypixel.hytale.server.core.universe.Universe.get();
             if (universe == null) {
-                ctx.sendMessage(Message.raw("✗ Could not get universe").color(Color.RED));
+                ctx.sendMessage(Message.raw("Could not get universe").color(Color.RED));
                 return;
             }
 
             var playerRef = universe.getPlayer(java.util.UUID.fromString(playerUuid));
             if (playerRef == null || !playerRef.isValid() || playerRef.getTransform() == null) {
-                ctx.sendMessage(Message.raw("✗ Could not get player reference").color(Color.RED));
+                ctx.sendMessage(Message.raw("Could not get player reference").color(Color.RED));
                 return;
             }
 
@@ -114,7 +114,7 @@ public class ChronoshiftCommand extends CommandBase {
 
             ctx.sendMessage(ChatColors.parse("&f» &fThe &l&gyellow{Chronoshift}&r&f started bending time..."));
         } catch (Exception e) {
-            ctx.sendMessage(Message.raw("✗ Error: " + e.getMessage()).color(Color.RED));
+            ctx.sendMessage(Message.raw("Error: " + e.getMessage()).color(Color.RED));
         }
     }
 
@@ -129,7 +129,6 @@ public class ChronoshiftCommand extends CommandBase {
             StringBuilder sb = new StringBuilder();
             everything.forEach((slot, itemStack) -> {
                 if (itemStack != null && !itemStack.isEmpty()) {
-                    // Skip Chronoshift item so it gets consumed on use
                     if ("Chronoshift".equals(itemStack.getItemId())) {
                         return;
                     }

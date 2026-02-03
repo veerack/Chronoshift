@@ -63,14 +63,14 @@ public final class ChronoshiftDropProtectionSystem extends EntityEventSystem<Ent
         Player player = store.getComponent(ref, Player.getComponentType());
         if (player == null) return;
 
-        // Check if player has Chronoshift and an active checkpoint
+        // check if player has Chronoshift and an active checkpoint
         CheckpointData data = checkpointManager.getCheckpointData(player.getUuid().toString());
         boolean hasActiveCheckpoint = data.hasCharm() && data.getCheckpoint() != null;
 
         boolean hasChronoshift = hasChronoshift(player);
 
         if (hasChronoshift && hasActiveCheckpoint) {
-            // Cannot drop ANY items while Chronoshift is active with checkpoint
+            // cannot drop any items while Chronoshift is active
             event.setCancelled(true);
             player.sendMessage(com.chronoshift.utils.ChatColors.parse("&c» &cCannot drop items while Chronoshift is active!"));
         }
