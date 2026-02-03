@@ -1,0 +1,157 @@
+{
+  "TranslationProperties": {
+    "Name": "Chronoshift",
+    "Description": "A mythical, ancient clock. Right-click to save a checkpoint that activates when your health is low."
+  },
+  "Icon": "Icons/ItemsGenerated/TimewiseClock.png",
+  "Categories": [
+    "Items.Miscellaneous"
+  ],
+  "Interactions": {
+    "Secondary": {
+      "Interactions": [
+        {
+          "Type": "chronoshift.ChronoshiftInteraction",
+          "RunTime": 0
+        }
+      ]
+    }
+  },
+  "Set": "Misc",
+  "BlockType": {
+    "DrawType": "Model",
+    "CustomModelTexture": [
+      {
+        "Weight": 1,
+        "Texture": "Items/chronoshift/TimeManipulatorTexture.png"
+      }
+    ],
+    "Material": "Solid",
+    "BlockSoundSetId": "Bone",
+    "HitboxType": "Branch_Corner",
+    "VariantRotation": "UpDownNESW",
+    "Opacity": "Solid",
+    "Flags": {},
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks",
+        "DropList": "Empty"
+      }
+    },
+    "BlockParticleSetId": "Stone",
+    "MaxSupportDistance": 4,
+    "Support": {
+      "North": [
+        {
+          "FaceType": "Full"
+        },
+        {
+          "Support": "Ignored",
+          "FaceType": "Branch"
+        }
+      ],
+      "Up": [
+        {
+          "FaceType": "Full"
+        }
+      ],
+      "Down": [
+        {
+          "Rotate": false,
+          "Support": "Ignored",
+          "FaceType": "Branch",
+          "SelfFaceType": "Branch"
+        }
+      ]
+    },
+    "Supporting": {
+      "North": [
+        {
+          "FaceType": "Branch"
+        }
+      ],
+      "Up": [
+        {
+          "FaceType": "Branch"
+        }
+      ]
+    },
+    "ParticleColor": "#ff00ff",
+    "CustomModelAnimation": "Items/chronoshift/ClockAnim.blockyanim",
+    "CustomModelScale": 1,
+    "CustomModel": "Items/chronoshift/TimeManipulator.blockymodel",
+    "Particles": [
+      {
+        "SystemId": "ForgottenTemple_Island_Spark",
+        "TargetEntityPart": "PrimaryItem",
+        "Scale": 0.1
+      }
+    ],
+    "AmbientSoundEventId": "ClockTickingSFX",
+    "RequiresAlphaBlending": true
+  },
+  "ResourceTypes": [],
+  "PlayerAnimationsId": "Item",
+  "Tags": {
+    "Type": [
+      "Deco"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Items_Bones",
+  "IconProperties": {
+    "Scale": 1.2,
+    "Rotation": [
+      355,
+      158,
+      15
+    ],
+    "Translation": [
+      -4,
+      -38
+    ]
+  },
+  "Quality": "Legendary",
+  "MaxStack": 1,
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Gold",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Rock_Gem_Topaz",
+        "Quantity": 6
+      },
+      {
+        "ItemId": "Ingredient_Bar_Silver",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Teleporter",
+        "Quantity": 1
+      }
+    ],
+    "Output": [
+      {
+        "ItemId": "Chronoshift",
+        "Quantity": 1
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "Arcanebench",
+        "Categories": [
+          "Arcane_Portals"
+        ],
+        "RequiredTierLevel": 1
+      }
+    ],
+    "KnowledgeRequired": false,
+    "RequiredMemoriesLevel": 3,
+    "TimeSeconds": 30
+  },
+  "Utility": {
+    "Usable": true
+  }
+}

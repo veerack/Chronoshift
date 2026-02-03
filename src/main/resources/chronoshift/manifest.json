@@ -1,0 +1,22 @@
+{
+  "Group": "Chronoshift",
+  "Name": "Chronoshift",
+  "Version": "1.0.0",
+  "Main": "com.chronoshift.ChronoshiftPlugin",
+  "ServerVersion": "*",
+  "Description": "A mythical, ancient clock. It can manipulate time in dangerous situations.",
+  "Authors": [
+    {
+      "Name": "veerack",
+      "Email": "",
+      "Url": ""
+    }
+  ],
+  "Website": "",
+  "Dependencies": {},
+  "OptionalDependencies": {},
+  "LoadBefore": {},
+  "DisabledByDefault": false,
+  "IncludesAssetPack": true,
+  "SubPlugins": []
+}
